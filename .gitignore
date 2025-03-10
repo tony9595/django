@@ -3,6 +3,6 @@ db.sqlite3
 *.pyc
 *.log
 *.pot
-pycache/
+__pycache__/
 db.sqlite3-journal media
 local_settings.py
