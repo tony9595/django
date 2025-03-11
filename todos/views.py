@@ -37,3 +37,8 @@ def todo_post(request):
         form = TodoForm()
 
     return render(request, "todo/todo_post.html", {"form": form})
+
+
+def todo_detail(request, pk):
+    todo = Todo.objects.get(id=pk)  # filter는 1개이상, get은 단일객체
+    return render(request, "todo/todo_detail.html", {"todo": todo})
