@@ -42,3 +42,17 @@ def todo_post(request):
 def todo_detail(request, pk):
     todo = Todo.objects.get(id=pk)  # filter는 1개이상, get은 단일객체
     return render(request, "todo/todo_detail.html", {"todo": todo})
+
+
+def todo_edit(request, pk):
+    todo = Todo.objects.get(id=pk)
+    if request.method == "POST":
+        form = TodoForm(request.POST, instance=todo)
+        if form.is_valid():
+            todo = form.save(commit=False)
+            todo.save()
+            return redirect("todo_list")
+
+    else:
+        form = TodoForm(instance=todo)  # 레코드, 튜플
+    return render(request, "todo/todo_post.html", {"form": form})
