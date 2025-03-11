@@ -11,4 +11,4 @@ class Todo(models.Model):
     important = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.description
+        return self.title
