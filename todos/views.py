@@ -22,8 +22,6 @@ def home(request):
 
 
 # dev_3
-
-
 def todo_list(request):
     # select * from todos where complete=0
     todos = Todo.objects.filter(complete=False)
